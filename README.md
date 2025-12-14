@@ -34,6 +34,11 @@ The agent can choose from four actions: `{UP, DOWN, STAY, PICK}`.
   * **Wait Penalty**: $-1.0$ per timestep for each pending request.
   * **Energy Cost**: $-0.5$ for every movement (`UP` or `DOWN`).
   * **Service Reward**: $+5.0$ for a successful pickup.
+  | Component | Reward | Purpose |
+| :--- | :--- | :--- |
+| **Pending Request** | `-1.0` | Penalizes wait time (per request/step) |
+| **Movement** | `-0.5` | Penalizes energy usage |
+| **Successful PICK** | `+5.0` | Encourages serving passengers |
 
 -----
 
@@ -41,10 +46,15 @@ The agent can choose from four actions: `{UP, DOWN, STAY, PICK}`.
 
 The system employs the **Value Iteration** algorithm to compute the optimal policy. The algorithm solves the **Bellman Optimality Equation**:
 
-$$
-V^*(s) = \max_a \sum_{s'} P(s' \mid s, a)
-\left[ R(s, a, s') + \gamma V^*(s') \right]
-$$
+$$V(s) = \max_{a} \sum_{s'} P(s'|s,a) [ R(s,a,s') + \gamma V(s') ]$$
+
+We used a **Discount Factor ($\gamma$) of 0.9** and a convergence threshold ($\theta$) of $0.0001$.
+
+### **Transition Model ($T$)**
+
+  * **Movement**: Deterministic (if the agent moves UP from Floor 1, it reaches Floor 2 with $P=1.0$).
+  * **Arrivals**: Stochastic. New passenger requests appear independently at each floor with $P=0.1$ per timestep.
+
 
 ### **Hyperparameters**
 

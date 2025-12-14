@@ -41,7 +41,10 @@ The agent can choose from four actions: `{UP, DOWN, STAY, PICK}`.
 
 The system employs the **Value Iteration** algorithm to compute the optimal policy. The algorithm solves the **Bellman Optimality Equation**:
 
-$V^*(s) = \max_a \sum_{s'} P(s' \mid s,a) [ R(s,a,s') + \gamma V^*(s') ]$.
+$$
+V^*(s) = \max_a \sum_{s'} P(s' \mid s, a)
+\left[ R(s, a, s') + \gamma V^*(s') \right]
+$$
 
 ### **Hyperparameters**
 

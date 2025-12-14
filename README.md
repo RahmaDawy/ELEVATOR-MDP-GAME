@@ -34,7 +34,8 @@ The agent can choose from four actions: `{UP, DOWN, STAY, PICK}`.
   * **Wait Penalty**: $-1.0$ per timestep for each pending request.
   * **Energy Cost**: $-0.5$ for every movement (`UP` or `DOWN`).
   * **Service Reward**: $+5.0$ for a successful pickup.
-  | Component | Reward | Purpose |
+
+| Component | Reward | Purpose |
 | :--- | :--- | :--- |
 | **Pending Request** | `-1.0` | Penalizes wait time (per request/step) |
 | **Movement** | `-0.5` | Penalizes energy usage |

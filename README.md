@@ -66,6 +66,8 @@ The simulation demonstrates that the MDP agent consistently identifies the most 
 ## **6. Conclusion**
 The implemented system fulfills all requirements of the project. By utilizing a model-based RL approach, the elevator demonstrates intelligence in a stochastic environment, proving that exact mathematical optimization (Value Iteration) is superior to basic rule-based heuristics for resource management.
 
+---
+
 
 ## 🚀 How to Install and Run
 
